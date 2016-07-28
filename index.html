@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Responsive Design And Dataviz</title>
+		<title>A Data Analysis of My Drinking Habits</title>
 		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -26,145 +26,150 @@
 			<div class="slides">
 
 				<section class="firstslide">
-					<h1>Responsive Design And Dataviz</h1>
+					<h1>A Data Analysis of My Drinking Habits</h1>
 					<hr>
 					<h3>Tyler Machado, hbr.org</h3>
 					<h5>@tylermachado / tylermachado.com</h5>
 
 					<aside class="notes">
 						hey what's up i'm the editorial web dev at HBR<br>
-						work on interactives and dataviz with our editors
+						this presentation does not reflect anything about my employers<br/>
+						I took stats for the 3rd time last semester<br>
+						final project: dataset of my choosing
 					</aside>
 				</section>
 
 				<section>
-					<h2 class="fragment">principles of mobile dataviz</h2>
-					<ul>
-						<li class="fragment">limited real estate</li>
-						<li class="fragment">vertical orientation</li>
-						<li class="fragment">touch/hover events are difficult</li>
+					<img src="img/untappd.png">
+
+					<aside class="notes">
+						used Untappd checkins<br>
+						516 checkins from 2010-2015, with a 2-yr hiatus<br>
+						see if assumptions about my own taste held up
+					</aside>
+				</section>
+
+				<section>
+					<h3>distribution of ratings</h3>
+
+					<aside class="notes">
+						assumed to be normal bell curve<br>
+					</aside>
+				</section>
+
+				<section>
+					<img src="img/ratingdistro.png">
+
+					<aside class="notes">
+						...not the case<br/>
+						skewed left, not normal<br/>
+					</aside>
+				</section>
+
+				<section>
+					<h3>distribution of ABV</h3>
+
+					<aside class="notes">
+						first there was extreme beer</br>
+						now session beer<br/>
+					</aside>
+				</section>
+
+				<section>
+					<img src="img/abvdistro.png"></img>
+
+					<aside class="notes">
+						right skew<br/>
+						IQR 5% - 6.8% represents most beer on market
+					</aside>
+				</section>
+
+				<section>
+					<h3>relationship between ABV and rating</h3>
+
+					<aside class="notes">
+						am I more generous with ratings when I'm more buzzed?</br>
+					</aside>
+				</section>
+
+				<section>
+					<img src="img/abvrating.png"></img>
+
+					<aside class="notes">
+						correlation coefficient is 0.18, not terribly strong
+					</aside>
+				</section>
+
+				<section>
+					<h3>relationship between state and rating</h3>
+
+					<aside class="notes">
+						curious whether it is true that Vermont makes the best beer ever</br>
+						only 6 states had enough beer to meet criteria for chi-squared test
+					</aside>
+				</section>
+
+				<section>
+					<ul class="fragment">
+						<li>H<subscript>0</subscript> = There is no relation between a beer’s state of origin and its rating.</li>
+						<li>H<subscript>A</subscript> = A beer’s state of origin and the rating I gave it are related.</li>
 					</ul>
 
+					<p class="fragment">P-value = 0.001738</p>
+
+					<p class="fragment">lower than 0.05 means there is a relationship!</p>
+
 					<aside class="notes">
-						there's no good or bad, just context
+						
 					</aside>
 				</section>
 
 				<section>
-					<a href="https://hbr.org/2016/04/how-corporate-boards-connect-in-charts"><img src="img/interlocks-web.png"></a>
+					<h3>relationship between style and rating</h3>
 
-					<aside class="notes">
-						original prototype by Scott was dense, horizontal layout<br>
-						brainstormed with designers for ideas<br>
-						sketch by Laura: square design fits nicely into any size
+					<aside class="notes">				
+						same as above, had to only consider common styles
 					</aside>
 				</section>
 
 				<section>
-					<h3>(print version)</h3>
-					<a href="https://hbr.org/2016/04/how-corporate-boards-connect-in-charts"><img src="img/interlocks-print.jpg" style="width:80%"></a>
+					<ul class="fragment">
+						<li>H<subscript>0</subscript> = There is no relation between the style of a beer and its rating.</li>
+						<li>H<subscript>A</subscript> = I give higher ratings to certain styles of beer than others.</li>
+					</ul>
+
+					<p class="fragment">P-value = 1.958e-13</p>
+
+					<p class="fragment">way lower than 0.05 means there is a relationship!</p>
 
 					<aside class="notes">
-						it actually works here!<br>
-						you could imagine a video as well
+						
 					</aside>
 				</section>
 
 				<section>
-					<a href="https://hbr.org/2016/06/the-decline-of-yahoo-in-its-own-words"><img src="img/mobile.png"></a>
+					<img src="img/styles.png"></img>
+					<img class="fragment overlay" id="shandy" src="img/shandy.png"></img>
 
 					<aside class="notes">
-						started with line, sketched out heatmap<br>
-						takes advantage of vertical scroll<br>
-						annotations don't hide info<br>
-						re-renders on width -- more effort to implement
+						best style radler, german version of a shandy (beer/lemonade mix)<br/>
+						reason for high rating is my southern New England provincialism
 					</aside>
 				</section>
 
 				<section>
-					<a href="http://www.nytimes.com/interactive/2014/12/28/world/asia/airasia-flight-qz8501-map.html"><img src="img/airasia.png"></a>
+					<h3>Conclusion</h3>
+					<h4>The rating I assign a beer in Untappd has some relationship with both its style and its state of origin, as well as a slight relationship with its ABV content. </h4>
 
 					<aside class="notes">
-						subtle differences to account for space<br>
-						ai2html
+						dataset isn't perfect -- biased sample, i'm bad at rating
 					</aside>
 				</section>
 
-				<section>
-					<a href="http://www.chicagotribune.com/news/ct-earphones-could-be-hurting-your-ears-20160229-htmlstory.html"><img src="img/earbuds.png"></a>
-
-					<aside class="notes">
-						radically different chart type
-					</aside>
-				</section>
 
 				<section>
-					<a href="http://projects.fivethirtyeight.com/womens-world-cup/ "><img src="img/worldcup.png"></a>
-
-					<aside class="notes">
-						streamlines the necessary info
-					</aside>
+					<img src="img/emoji.png"></img>
 				</section>
-
-				<section>
-					<a href="http://www.npr.org/2015/04/01/396757476/the-neighborhood-wal-mart-a-blessing-or-a-curse"><img src="img/walmart.png"></a>
-
-					<aside class="notes">
-						small multiples on desktop<br>
-						animated GIFs on mobile
-					</aside>
-				</section>
-
-				<section>
-					<h3>AI2HTML</h3>
-					<img src="img/res-ai2html.png">
-
-					<aside class="notes">
-						developed by New York Times<br>
-						turns Illustrator documents into HTML and CSS<br>
-						includes custom script for responsiveness
-					</aside>
-				</section>
-
-				<section>
-					<h3>Pym.js</h3>
-					<video width="640" height="480" controls>
-						<source src="img/pym.mp4" type="video/mp4">
-					</video>
-
-					<aside class="notes">
-						Javascript library developed by NPR<br>
-						make iframes responsive
-					</aside>
-				</section>
-
-				<section>
-					<h3>Javascript : D3.js</h3>
-				    <pre><code data-trim data-noescape>
-function render() {
-	d3.select("#chartcontainer").selectAll("*").remove();
-	width = window.innerWidth;
-	console.log(window.innerWidth);
-	if (window.innerWidth > 768) {
-		drawLineChart();
-		pymChild.sendHeight();
-	} else {
-		drawHeatmap();
-		pymChild.sendHeight();
-	}
-}
-
-render();
-
-window.onresize = render;
-				    </code></pre>
-				</section>
-
-				<section>
-					<h3>thanks, here's a chill dog pic</h3>
-					<img src="img/dog.jpg" style="width:60%">
-				</section>
-
 			</div>
 		</div>
 
